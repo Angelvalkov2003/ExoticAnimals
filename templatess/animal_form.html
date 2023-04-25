@@ -1,0 +1,66 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <form method="POST" action="" class="form" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="animal-form">
+            <div>
+                <label for="animal_classification"> Classification: </label>
+                <input required name="classification" type="text" list="classification-list"/>
+                <datalist id="classification-list">
+                    <select id="animal_classification">
+                        {% for classification in classifications %}
+                            <option value="{{classification.name}}">{{classification.name}}</option>
+                        {% endfor %}
+                    </select>
+                </datalist>
+            </div>
+
+            <div>
+                <label for="animal_species">Species:</label>
+                    {{form.species}}
+            </div>
+
+            <div>
+                <label for="animal_size">Size:</label>
+                {{form.size}} 
+            </div>
+
+            <div>
+                <label for="animal_gender">Gender:</label>
+                {{form.gender}} 
+            </div>
+
+            <div>
+                <label for="animal_diet">Diet:</label>
+                {{form.diet}} 
+            </div>
+
+            <div>
+                <label for="animal_price">Price:</label>
+                {{form.price}}
+            </div>
+
+
+            <div>
+                <label for="animal_picture">Picture:</label>
+                {{form.picture}} 
+            </div>
+
+
+            <div>
+                <label for="animal_birth">Birth:</label>
+                {{form.birth}} 
+            </div>
+
+            <div>
+                <label for=" animal_description">Description:</label>
+                {{form.description}}
+            </div><br>
+            
+            <div class="submit-animal">
+                <input class="submit-animal-button" type="submit" value="Submit" />
+            </div>
+        </div>
+    </form>
+{% endblock content %}

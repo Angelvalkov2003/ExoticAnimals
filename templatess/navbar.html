@@ -1,0 +1,383 @@
+<style>
+    body {
+    background: linear-gradient(to right, rgba(30, 57, 10, 0.897), rgb(8, 61, 45));
+    font-family: "Times New Roman", Times, serif;
+}
+
+h1, h2, h3, h4, h5, h6, p, small {
+    color: rgb(255, 255, 255);
+}
+
+a {
+    color: rgb(203, 243, 248);
+}
+.classifications{
+    background-color:linear-gradient(to right, rgba(103,174,68,255), rgb(55, 183, 142));
+    padding-left: 8%;
+}
+
+.info{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    padding-left: 2%;
+}
+.param{
+    padding: 4%;
+    padding-top: 10%;
+}
+.nav-bar{
+    display:grid;
+    grid-template-columns: 2fr 3fr 2fr;
+    background: linear-gradient(to right, rgba(103,174,68,255), rgb(55, 183, 142));
+
+}
+
+.searchBar {
+    padding: 2%;
+    
+}
+
+.searchBar .search-icon {
+    position: absolute;
+    padding: 10px;
+    width: 20px;
+    color: rgb(96, 92, 92);
+}
+
+.searchBar input[type=text] {
+    width: 90%;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.537);
+    background-color:rgba(30, 57, 10, 0.897);
+    text-align: left;
+    color:aliceblue;
+    padding-left: 30px;
+}
+
+.loginDiv{
+    text-align: center; 
+}
+
+.home-container{
+    display:grid;
+    grid-template-columns: 1fr 10fr;
+
+}
+
+.brands{
+    border-right:  1mm solid rgba(255, 255, 255, 0.568);
+
+}
+
+.stocks{
+    
+    padding: 30px;
+    padding-left: 50px;
+}
+.information{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+.map-info{
+    padding: 3%;
+}
+.text-info{
+    padding: 8%;
+    margin: 13%;
+}
+.home-img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+.intro{
+    position: absolute;
+    left: 35%;
+    top:40%;
+    background-color: linear-gradient(to right, rgba(103,174,68,255), rgb(55, 183, 142));
+    width: 30%;
+    text-align: center;
+    border: 4mm ridge rgba(147, 145, 145, 0.6);
+    border-radius: 30px;
+}
+.intro-animal{
+    position: absolute;
+    left: 36.5%;
+    top:57%;
+    background-color: linear-gradient(to right, rgba(103,174,68,255), rgb(55, 183, 142));
+    width: 8%;
+    text-align: center;
+    border: 2mm ridge rgba(147, 145, 145, 0.6);
+    border-radius: 30px;
+}
+.intro-fact{
+    position: absolute;
+    left: 46.5%;
+    top:57%;
+    background-color: linear-gradient(to right, rgba(103,174,68,255), rgb(55, 183, 142));
+    width: 8%;
+    text-align: center;
+    border: 2mm ridge rgba(147, 145, 145, 0.6);
+    border-radius: 30px;
+}
+.intro-info{
+    position: absolute;
+    left: 56.5%;
+    top:57%;
+    background-color: linear-gradient(to right, rgba(103,174,68,255), rgb(55, 183, 142));
+    width: 8%;
+    text-align: center;
+    border: 2mm ridge rgba(147, 145, 145, 0.6);
+    border-radius: 30px;
+}
+.nav-links{
+    font-weight: bold;
+}
+.animal-form{
+    margin: auto;
+    width: 30%;
+    border: 10px solid rgb(112, 112, 112);
+    padding: 10px;
+    text-align: left;
+    color: azure;
+    
+}
+.animal-form input{
+    border: none;
+    background-color: linear-gradient(to right, rgba(103,174,68,255), rgb(55, 183, 142));
+    padding-right: 100px;
+    margin-right: 100%;
+    width: 80%;
+    color:azure;
+}
+.animal-form textarea{
+    border: none;
+    background-color: linear-gradient(to right, rgba(103,174,68,255), rgb(55, 183, 142));
+    padding-right: 30px;
+    margin-right: 100%;
+    width: 95%;
+    color:azure;
+}
+.animal-form input[type='file']{
+    color:rgb(255, 255, 255);
+    font-size:10px;
+    
+}
+.animal-form button{
+    color:rgb(255, 255, 255);
+    font-size:10px;
+}
+.submit-animal{
+    height: 50px;
+    text-align: center;
+    border: 10px solid rgb(112, 112, 112);
+    background-color: linear-gradient(to right, rgba(103,174,68,255), rgb(55, 183, 142));
+}
+.submit-animal-button{
+    color:rgb(255, 255, 255);
+    font-size: 200%;
+    padding-left: 35%;
+    padding-top: 2%;
+    width: 80%;
+    font-weight: bolder;
+}
+.buy-animal-button{
+    background-color: linear-gradient(to right, rgba(103,174,68,255), rgb(55, 183, 142));
+    border: 5px solid rgb(112, 112, 112);
+    color: azure;
+    padding: 2% 4%;
+    text-align: center;
+    display: inline-block;
+    font-size: 260%;
+    cursor: pointer;
+}
+.intro input{
+    border: none;
+    background-color: linear-gradient(to right, rgba(103,174,68,255), rgb(55, 183, 142));
+    width: 100%;
+    color:azure;
+}
+.login{
+    position: absolute;
+    left: 35%;
+    top:40%;
+    background-color: linear-gradient(to right, rgba(103,174,68,255), rgb(55, 183, 142));
+    color: azure;
+    width: 30%;
+    text-align: center;
+    border: 4mm ridge rgba(147, 145, 145, 0.6);
+    border-radius: 30px;
+}
+.login input[type=submit]{
+    border: 3px solid rgb(112, 112, 112);
+    background-color: linear-gradient(to right, rgba(103,174,68,255), rgb(55, 183, 142));
+    width: 30%;
+    color:azure;
+}
+.register{
+    position: absolute;
+    left: 35%;
+    top:40%;
+    color:azure;
+    background-color: linear-gradient(to right, rgba(103,174,68,255), rgb(55, 183, 142));
+    width: 30%;
+    text-align: center;
+    border: 4mm ridge rgba(147, 145, 145, 0.6);
+    border-radius: 30px;
+}
+.register input[type=submit]{
+    border: 3px solid rgb(112, 112, 112);
+    background-color: linear-gradient(to right, rgba(103,174,68,255), rgb(55, 183, 142));
+    width: 30%;
+    color:azure;
+}
+.logo-img{
+    display: block;
+    margin-left: 0%;
+    margin-right: auto;
+    width: 70%;
+}
+.info img{
+    max-width: 700px; /* Make sure the image fits within the container */
+    height: auto; /* Maintain the aspect ratio of the image */
+    }
+
+@media (max-width: 768px) {
+        
+    .info {
+        grid-template-columns: 1fr;
+        padding: 2%;
+    }
+
+    .param {
+        padding: 4%;
+        padding-top: 5%;
+    }
+
+    .nav-bar {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-menu img{
+        
+        margin-left: 15%;
+        left: 50%;
+        
+    }
+    .nav-links{
+        text-align: center;
+    }
+    .loginDiv{
+        font-size: 10px;
+    }
+    .intro{
+        width: 90%;
+        left: 2%;
+        top: 60%;
+    }
+    .intro-animal {
+        
+        left: 7%;
+        top: 80%;
+        width: 23%;
+        
+    }
+    .intro-fact {
+        
+        left: 37%;
+        top: 80%;
+        width: 23%;
+        
+    }
+    .intro-info {
+
+        left: 67%;
+        top: 80%;
+        width: 23%;
+
+    }
+
+    .login {
+        left: 13%;
+        top: 60%;
+        width: 70%;
+    }
+
+    .register {
+        left: 13%;
+        top: 60%;
+        width: 70%;
+    }
+    .stocks {
+        padding: 0%; 
+        padding-left: 20px;
+    }
+    .info img{
+        max-width: 400px;
+        height: auto;
+    }
+    .fact-container img{
+        max-width: 400px;   
+        height: auto;   
+    }
+    .map-info img{
+        max-width: 400px;   
+        height: auto;       
+    }
+    
+    .information {
+        display: block;
+    }
+    .animal-form {
+        
+        width: 70%;
+    }
+}
+
+</style>
+<div class="nav-bar">
+    <div class="nav-menu">
+
+        <a href="/">
+            <img src="http://localhost:8000/files/images/logo.jpg" class="logo-img">
+        </a>
+
+        <div class="nav-links">
+            {% if request.path != '/shop/' %}
+                <a href="{% url 'shop' %}">Купи животно</a>
+            {% endif %}
+
+            {% if request.path != '/facts/' %}
+                <a href="{% url 'facts' %}">Прочети факт</a>
+            {% endif %}
+
+            {% if request.path != '/information' %}
+                <a href="{% url 'information' %}">Информация</a>
+            {% endif %}
+            
+            {% if user.is_superuser %}
+                <a href="{% url 'animalOrders' %}">Поръчки</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="searchBar">
+        <form method="GET" action="{% url 'shop' %}" >
+            <i class="search-icon fa fa-search"></i><input type="text" name="q" placeholder="Животно... " class="searchBar"/>
+        </form>
+        <br>
+        <form method="GET" action="{% url 'facts' %}" >
+            <i class="search-icon fa fa-search"></i><input type="text" name="q" placeholder="Факт... " class="searchBar"/>
+        </form>
+    </div>
+    <div class="loginDiv">
+        {% if request.user.is_authenticated%}
+            <h1>Здравей, <a href="{% url 'user-profile' request.user.id %}">{{request.user}}</a></h1>
+            <h2><a href="{% url 'logout' %}">Излизане от профила</a></h2>
+        {% else %}
+            <a href="{% url 'login' %}"><h1>Влез в профил</h1></a>
+        {% endif %}
+        
+    </div>
+</div>
+<hr>

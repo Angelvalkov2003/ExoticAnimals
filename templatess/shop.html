@@ -1,0 +1,51 @@
+{% extends 'main.html' %}
+
+{% block content %}
+{% load static %}
+<style>
+    
+</style>
+<div class="home-container">
+
+    <div class="classifications">
+        <h3>Типове</h3>
+        <hr>
+        <div>
+            <h3><a href="{% url 'shop' %}">Всички</a></h3>
+        </div><br>
+
+        {% for classification in classifications %}
+        <div>
+            <a href="{% url 'shop' %}?q={{classification.name}}">{{classification.name}}</a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="stocks">
+        <h2>Можете да избирате между {{animal_count}} налични екзотични животни</h2>
+        {% if user.is_superuser %}
+            <a href="{% url 'add-animal' %}">Add animal</a><hr>
+        {% endif %}
+    
+        {% for animal in animals %}
+            <div>
+                {% if user.is_superuser %}
+                    <a href="{% url 'update-animal' animal.id %}">Update</a>
+                    <a href="{% url 'delete-animal' animal.id %}">Delete</a>
+                {% endif %}
+                <br/>
+                <a href="{% url 'animalinfo' animal.id %}">
+                    <small>{{animal.classification.name}}</small>
+                    <br/>
+                    <img style="max-width: 400px;" src="http://localhost:8000/{{animal.picture}}"/>
+                    <br/>
+                    <h2>{{animal.species}}</h2>
+                </a>
+                <hr>
+            </div>
+        {% endfor %}
+    </div>
+    
+</div>
+
+{% endblock content %}

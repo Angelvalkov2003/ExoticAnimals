@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div>
+    <div>
+        <img src="http://localhost:8000/files/images/home.jpg" class="home-img" />
+    </div>
+    <div class="intro">
+        <h1>Добре дошли в ExoticAnimals</h1>
+        <h3>Където ще намерите вашия екзотичен приятел</h3>
+    </div>
+    <a href="{% url 'shop' %}"><h3 class="intro-animal">Животни</h3></a>
+    <a href="{% url 'facts' %}"><h3 class="intro-fact">Факти</h3></a>
+    <a href="{% url 'information' %}"><h3 class="intro-info">Информация</h3></a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="stocks">
+
+   <div>
+     <h1>Твоите поръчки на животни:</h1>
+     {% for ordersAnimal in ordersAnimals %}
+     <div>
+          <a href="{% url 'animalinfo' ordersAnimal.animal.id %}">
+               <h2>{{ordersAnimal.animal.species}}</h5>
+               <img style="max-width: 400px;" src="http://localhost:8000/{{ordersAnimal.animal.picture}}"/><br>
+          </a>
+         <small>The order is made: {{ordersAnimal.created|timesince}} ago </small>
+         <hr><br>
+     </div>
+     {% endfor %}
+   </div>
+
+</div>
+{% endblock content %}

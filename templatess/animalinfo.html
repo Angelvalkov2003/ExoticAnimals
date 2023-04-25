@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<form method="POST" action="">
+    {% csrf_token %}
+    <div class="animal-container">
+        <div class="info">
+            <div>
+                <h1>{{animal.species}}</h1>
+                <h2>{{animal.classification}}</h2>
+                <img src="http://localhost:8000/{{animal.picture}}"/>
+            </div>
+            <div class="param">
+                <h2>Показания на животното:</h2><br>
+                <h3>размер: {{animal.size}} см</h3>
+                <h3>пол: {{animal.gender}}</h3>
+                <h3>храна: {{animal.diet}}</h3>
+                <h3>цена: {{animal.price}} <i class="fa fa-dollar"> </i></h3>
+                <h3>роден: {{animal.birth}}</h3>
+                <p>описание: {{animal.description}}</p><br>
+                <button type="button" class="buy-animal-button" onclick="window.location.href='http://localhost:8000/buyAnimal/{{animal.id}}';">Купи</button>
+            </div>
+            
+        </div>
+        <div class="comment-wrapper">
+            <h3> <i class="fa fa-comment-o"> </i> Коментари:</h3>
+            <hr>
+            {% for comment in animal_comments %}
+            <div>
+                {% if request.user == comment.user %}
+                    <a href="{% url 'delete-comment' comment.id%}">Изтрий</a>
+                {% endif %}
+                <small>{{comment.user}}    преди {{comment.created|timesince}} </small>
+                <p>{{comment.body}}</p>
+                <hr>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="comment-form">
+            <div class="searchBar">
+                <h3>Твоя коментар:</h3>
+                <input type="text" name="body" placeholder="Write your comment here..."/>
+            </div>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

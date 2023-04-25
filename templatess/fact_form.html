@@ -1,0 +1,42 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="animal-form">
+    <form method="POST" action="" class="form" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <div>
+            <label for="fact_classification">Classification:</label>
+            <input required name="classification" type="text" list="classification-list"/>
+            <datalist id="classification-list">
+                <select id="fact_classification">
+                    {% for classification in classifications %}
+                        <option value="{{classification.name}}">{{classification.name}}</option>
+                    {% endfor %}
+                </select>
+            </datalist>
+        </div>
+
+        <div>
+            <label for="fact_species">Species:</label>
+            {{form.species}} 
+        </div>
+
+        <div>
+            <label for="fact_picture">Picture:</label>
+            {{form.picture}} 
+        </div>
+
+        <div>
+            <label for="fact_description">Description:</label>
+            {{form.description}}
+        </div>
+        
+        <div class="submit-animal">
+            <input class="submit-animal-button" type="submit" value="Submit" />
+        </div>
+        
+    </form>
+</div>
+{% endblock content %}

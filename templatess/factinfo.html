@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<form method="POST" action="">
+    {% csrf_token %} 
+    <div class="fact-container">
+        <div class="info">
+            <div>
+                <h1>{{fact.species}}</h1>
+                <h2>{{fact.classification}}</h2>
+                <img src="http://localhost:8000/{{fact.picture}}"/>
+            </div>
+            <div class="param">
+                <h2>Факт: {{fact.description}}</h2>
+            </div>
+        </div>
+        <div>
+            <div class="comment-wrapper">
+                <h3><i class="fa fa-comment-o"></i> Коментари:</h3>
+                <hr>
+                {% for comment in fact_comments %}
+                <div>
+                    {% if request.user == comment.user %}
+                        <a href="{% url 'delete-comment' comment.id%}">Изтрий</a>
+                    {% endif %}
+                    <small>{{comment.user}}    преди {{comment.created|timesince}} </small>
+                    <p>{{comment.body}}</p>
+                    <hr>
+                </div>
+                {% endfor %}
+            </div>
+
+            {% if request.user.is_authenticated %}
+            <div class="comment-form">
+                <div class="searchBar">
+                    <h3>Твоя коментар:</h3>
+                    <input type="text" name="body" placeholder="Write your comment here..."/>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</form>
+
+{% endblock %}

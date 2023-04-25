@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+
+{% block content %}
+{% load static %}
+
+<div class="home-container">
+
+    <div class="classifications">
+        <h3>Типове</h3>
+        <hr>
+        <div>
+            <h3><a href="{% url 'facts' %}">Всички</a></h3>
+        </div><br>
+
+
+        {% for classification in classifications %}
+        <div>
+            <a href="{% url 'facts' %}?q={{classification.name}}">{{classification.name}}</a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="stocks">
+        <h2>Имаме {{fact_count}} интересни факта за екзотичните животни които предлагаме</h2>
+        {% if user.is_superuser %}
+            <a href="{% url 'add-fact' %}">Add fact</a><hr>
+        {% endif %}
+    
+        {% for fact in facts %}
+            
+                {% if user.is_superuser %}
+                    <a href="{% url 'update-fact' fact.id %}">Update</a>
+                    <a href="{% url 'delete-fact' fact.id %}">Delete</a>
+                {% endif %}
+                <br/>
+                <a href="{% url 'factinfo' fact.id %}">
+                    <small>{{fact.classification.name}}</small>
+                    <br/>
+                    <img style="max-width: 400px;" src="http://localhost:8000/{{fact.picture}}"/>
+                    <h2>{{fact.species}}</h2>
+                </a>
+                <hr>
+        {% endfor %}
+    </div>
+    
+</div>
+
+{% endblock content %}
